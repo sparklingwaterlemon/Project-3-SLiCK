@@ -25,7 +25,8 @@ urlpatterns = [
   # http://localhost:8000/bets/123/assoc_team/123/
   path('bets/<int:bet_id>/assoc_team/<int:team_id>/', views.assoc_team, name="assoc_team"),
 
-
+  # REMOVE TEAMS FROM BET
+  # http://localhost:8000/bets/123/remove_team/123/
   path('bets/<int:bet_id>/remove_team/<int:team_id>/', views.teams_remove, name="teams_remove"),
 
 

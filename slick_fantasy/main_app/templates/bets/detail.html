@@ -45,7 +45,7 @@
     <!-- Bet's Available Teams -->
     <div class="col s6">
         <h3>Available Teams</h3>
-        {% if teams.count %}
+        {% if teams.count > 29%}
             {% for team in teams.all %}
                 <div class="card">
                     <div class="card-content">
