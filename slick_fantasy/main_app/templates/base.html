@@ -22,8 +22,6 @@
         <ul class="right">
           {% if user.is_authenticated %}
             <li><a href="{% url 'bets_create' %}"> Add a Bet </a></li>
-            <li><a href="{% url 'teams_index' %}"> Team Index </a></li>
-            <li><a href="{% url 'teams_create' %}"> Team Create </a></li>
             <li><a href="/bets"> User Page </a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
