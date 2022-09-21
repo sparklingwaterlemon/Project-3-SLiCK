@@ -128,19 +128,6 @@ def teams_remove(request, bet_id, team_id):
     return redirect('detail', bet_id=bet_id)
 
 
-
-@login_required    
-def remove_team(request, bet_id, team_id):
-    print('This is team id =========>' + team_id)
-    team_object = Team.objects.get(team_id)
-    
-    bets = Bet()
-    bets.teams.remove(team_object)
-    return render(request, "bets.html", {'bets' : bets})
-
-
-
-
 def signup(request):
   error_message = ''
   if request.method == 'POST':
