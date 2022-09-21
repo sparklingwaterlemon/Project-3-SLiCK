@@ -30,7 +30,11 @@
             {% for team in bets.teams.all %}
                 <div class="card">
                     <div class="card-content">
-                        <span class="card-title">{{ team.name }}</span><a href="{% url 'teams_delete' bets.id %}">Delete</a>
+                        <span class="card-title">{{ team.name }}</span>
+                        <form action="{% url 'teams_remove' bets.id team.id %}" method="post">
+                            {% csrf_token %}
+                        <button type="submit" class="btn">Remove Team</button>
+                        </form>
                     </div>
                 </div>
             {% endfor %}
@@ -46,7 +50,11 @@
                 <div class="card">
                     <div class="card-content">
                         <span class="card-title">
+<<<<<<< HEAD
                             {{ team.name }} 
+=======
+                            {{ team.name }}
+>>>>>>> 6f0e38d3749b882ba7e1a1f2df6adecd1ee7cd10
                         </span>
                     </div>
                     <div class="card-action">
