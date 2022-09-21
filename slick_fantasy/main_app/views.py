@@ -112,6 +112,7 @@ class TeamDelete(LoginRequiredMixin, DeleteView):
     model = Team
     success_url = '/teams/'
 
+
 # Adding Teams to Bet
 # http://localhost:8000/bets/123/assoc_team/123/
 @login_required
@@ -119,7 +120,15 @@ def assoc_team(request, bet_id, team_id):
     # id = pk
     Bet.objects.get(id=bet_id).teams.add(team_id)
     return redirect('detail', bet_id=bet_id)
-    
+
+
+@login_required
+def teams_remove(request, bet_id, team_id):
+    Bet.objects.get(id=bet_id).teams.remove(team_id)
+    return redirect('detail', bet_id=bet_id)
+
+
+
 @login_required    
 def remove_team(request, bet_id, team_id):
     print('This is team id =========>' + team_id)
@@ -128,6 +137,9 @@ def remove_team(request, bet_id, team_id):
     bets = Bet()
     bets.teams.remove(team_object)
     return render(request, "bets.html", {'bets' : bets})
+
+
+
 
 def signup(request):
   error_message = ''
@@ -150,3 +162,5 @@ def signup(request):
     
 def some_function(request):
     secret_key = os.environ['SECRET_KEY']
+
+

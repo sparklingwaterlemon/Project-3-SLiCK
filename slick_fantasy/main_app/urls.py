@@ -25,6 +25,11 @@ urlpatterns = [
   # http://localhost:8000/bets/123/assoc_team/123/
   path('bets/<int:bet_id>/assoc_team/<int:team_id>/', views.assoc_team, name="assoc_team"),
 
+
+  path('bets/<int:bet_id>/remove_team/<int:team_id>/', views.teams_remove, name="teams_remove"),
+
+
+
   # LIST OF TEAMS
   # http://localhost:8000/teams/
   path('teams/', views.TeamList.as_view(), name='teams_index'),
@@ -40,4 +45,6 @@ urlpatterns = [
   path('bets/<int:bet_id>/remove_team/<int:team_id>/', views.remove_team, name="teams_remove"),
   # http://localhost:8000/accounts/signup/
   path('accounts/signup/', views.signup, name='signup'),
+
+
 ]
