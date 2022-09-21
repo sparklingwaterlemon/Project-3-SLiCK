@@ -45,7 +45,7 @@
     <!-- Bet's Available Teams -->
     <div class="col s6">
         <h3>Available Teams</h3>
-        {% if teams.count > 29%}
+        {% if teams.count > 29 %}
             {% for team in teams.all %}
                 <div class="card">
                     <div class="card-content">
@@ -62,7 +62,7 @@
                 </div>
             {% endfor %}
         {% else %}
-        <h5>{{bets.name}} Already Has All teams Available</h5>
+        <h5>{{bets.name}}  Good Luck</h5>
         {% endif %}
     </div>
 </div>
