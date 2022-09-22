@@ -44,7 +44,6 @@ def bets_detail(request, bet_id):
 class BetsCreate(LoginRequiredMixin, CreateView):
     model = Bet
     fields = ['name', 'wager']
-
     # This inherited method is called when a
   # valid cat form is being submitted
     def form_valid(self, form):
@@ -119,12 +118,33 @@ class TeamDelete(LoginRequiredMixin, DeleteView):
 def assoc_team(request, bet_id, team_id):
     # id = pk
     Bet.objects.get(id=bet_id).teams.add(team_id)
-    return redirect('detail', bet_id=bet_id)
+    bet_total_score = Bet.objects.get(id=bet_id).total_score
+    team_individual_score = Team.objects.get(id=team_id).score
+    bet_total_score += team_individual_score
+    Bet.objects.get(id=bet_id).save()
+    
 
+    return redirect('detail', bet_id=bet_id)
 
 @login_required
 def teams_remove(request, bet_id, team_id):
     Bet.objects.get(id=bet_id).teams.remove(team_id)
+
+    # score adding functionality here ---- :
+    # grabbing the 'total_score' of an individual bet
+    bet_total_score = Bet.objects.get(id=bet_id).total_score
+
+    # grabbing the 'score' of the individual team
+    team_individual_score = Team.objects.get(id=team_id).score
+
+    # bet total score is adding team individual score
+    bet_total_score -= team_individual_score
+    
+    # updating/saving the new bet total score
+    bet = Bet.objects.get(id=bet_id)
+    bet.total_score = bet_total_score
+    bet.save()
+
     return redirect('detail', bet_id=bet_id)
 
 

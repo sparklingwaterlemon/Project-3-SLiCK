@@ -20,6 +20,15 @@
     </div>
 </div>
 <hr>
+{{team.score}}
+{{bets.teams.score}}
+<!-- total score idea -->
+{% for team in bets.teams.all %}
+    {{team.score}}
+ {% endfor %}
+
+total_score =0
+ttotal_score += pareInt(team.score)
 
 <!-- Bet's Current Teams -->
 <div class="row">
@@ -30,7 +39,7 @@
             {% for team in bets.teams.all %}
                 <div class="card">
                     <div class="card-content">
-                        <span class="card-title">{{ team.name }}</span>
+                        <span class="card-title">{{ team.name }}: {{ team.score }}</span>
                         <form action="{% url 'teams_remove' bets.id team.id %}" method="post">
                             {% csrf_token %}
                         <button type="submit" class="btn">Remove Team</button>
@@ -41,6 +50,8 @@
         {% else %}
             <h5>No Teams</h5>
         {% endif %}
+
+       
     </div>
     <!-- Bet's Available Teams -->
     <div class="col s6">
