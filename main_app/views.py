@@ -70,7 +70,6 @@ def bets_detail(request, bet_id):
 class BetsCreate(LoginRequiredMixin, CreateView):
     model = Bet
     fields = ['name', 'wager']
-
     # This inherited method is called when a
   # valid cat form is being submitted
     def form_valid(self, form):
