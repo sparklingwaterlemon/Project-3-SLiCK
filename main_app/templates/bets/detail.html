@@ -12,14 +12,15 @@
                 <p>Total Score: {{ bets.total_score }}</p>
             </div>
             <div class="card-action">
-                <a href="{% url 'bets_update' bets.id %}">Edit</a>
-                <a href="{% url 'bets_delete' bets.id %}">Delete</a>
-                <a href="{% url 'bets' %}">Go Back to User</a>
+                <a href="{% url 'bets_update' bets.id %}" class="indigo-text">Edit</a>
+                <a href="{% url 'bets_delete' bets.id %}" class="indigo-text">Delete</a>
+                <a href="{% url 'bets' %}"  class="indigo-text">Go Back to User</a>
             </div>
         </div>
     </div>
 </div>
 <hr>
+
 
 <!-- Bet's Current Teams -->
 <div class="row">
@@ -33,7 +34,7 @@
                         <span class="card-title">{{ team.name }}</span>
                         <form action="{% url 'teams_remove' bets.id team.id %}" method="post">
                             {% csrf_token %}
-                        <button type="submit" class="btn">Remove Team</button>
+                        <button type="submit" class="btn indigo">Remove Team</button>
                         </form>
                     </div>
                 </div>
@@ -56,7 +57,7 @@
                     <div class="card-action">
                         <form action="{% url 'assoc_team' bets.id team.id %}" method="post">
                             {% csrf_token %}
-                        <button type="submit" class="btn">Add</button>
+                        <button type="submit" class="btn indigo">Add</button>
                         </form>
                     </div>
                 </div>
@@ -66,22 +67,5 @@
         {% endif %}
     </div>
 </div>
-<ul class="collapsible">
-    <li>
-      <div class="collapsible-header">{{ bets.name }}</div>
-      <div class="collapsible-body">
-        <span>Wager: {{ bets.wager }}</span><br>
-        <span>Total Score: {{ bets.total_score }}</span>
-    </div>
-    </li>
-    <li>
-      <div class="collapsible-header">Second</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-      <div class="collapsible-header">Third</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-  </ul>
 
 {% endblock %}

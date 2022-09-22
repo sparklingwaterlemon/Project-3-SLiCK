@@ -4,15 +4,23 @@
 <h1> User Bets</h1>
 
 {% for bet in bets %}
-    <a href="{% url 'detail' bet.id %}">
-        <div class="card">
-            <div class="card-content">
-                <span class="card-title">{{ bet.name }}</span>
-                <p>Total Score: {{ bet.totat_score }}</p>
-                <p>Wager: {{ bet.wager }}</p>
+    <ul class="collapsible popout">
+        <li>
+            <div class="collapsible-header"><i class="material-icons"></i>
+                <h4><span class="card-title">{{ bet.name }}</span></h4>
             </div>
-        </div>
-    </a>
+            <div class="collapsible-body">
+                <span>Total Score: {{ bet.total_score }}</span>
+            </div>
+            <div class="collapsible-body">
+                <span>Wager: {{ bet.wager }}</span>
+            </div>
+            <div class="collapsible-body">
+                <span> <a href="{% url 'detail' bet.id %}">Click for Details </a> </span>
+            </div>
+        </li>
+    </ul>
 {% endfor %}
 
 {% endblock %}
+
