@@ -12,9 +12,9 @@
                 <p>Total Score: {{ bets.total_score }}</p>
             </div>
             <div class="card-action">
-                <a class="indigo-text" href="{% url 'bets_update' bets.id %}">Edit</a>
-                <a class="indigo-text" href="{% url 'bets_delete' bets.id %}">Delete</a>
-                <a class="indigo-text" href="{% url 'bets' %}">Go Back to User</a>
+                <a href="{% url 'bets_update' bets.id %}" class="indigo-text">Edit</a>
+                <a href="{% url 'bets_delete' bets.id %}" class="indigo-text">Delete</a>
+                <a href="{% url 'bets' %}"  class="indigo-text">Go Back to User</a>
             </div>
         </div>
     </div>
