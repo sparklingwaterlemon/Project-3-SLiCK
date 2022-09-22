@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -10,8 +11,8 @@
     $('.collapsible').collapsible();
   });
   $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
+      $('.sidenav').sidenav();
+    });
   </script>
 
 
@@ -26,14 +27,21 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
+
+
+
+
+
+
+
 <body>
-  
+
   <div class="navbar-fixed">
     <nav class="nav-wrapper indigo">
       <div class="container">
-        <a href="/" class=" brand-logo">&nbsp;&nbsp;SLICK</a>
+        <a href="/" class=" brand-logo">&nbsp;&nbsp;SLICK </a>
         <a href="/" class="sidenav-trigger" data-target="mobile-links">
-          <i class="material-icons">menu</i>
+          <i class="material-icons"><img src="https://i.imgur.com/auaSiZo.png" style="height: 50px; width: 40px; padding-top: 5px;""></i>
         </a>
         <ul class="right hide-on-med-and-down">
           {% if user.is_authenticated %}
@@ -61,9 +69,6 @@
     <li><a href="{% url 'login' %}">Log In</a></li>
   {% endif %}
   </ul>
-
-
-
   <main class="container">
     {% block content %}
     {% endblock %}
@@ -79,4 +84,5 @@
 
 
 </body>
+
 </html>
