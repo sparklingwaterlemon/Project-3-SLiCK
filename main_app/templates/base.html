@@ -1,27 +1,34 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-    $(document).ready(function(){
-      $('.collapsible').collapsible();
-    });
-    </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+  </script>
+
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>SLICK</title>
   
-  
-  
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
-    <title>SLiCK</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-  </head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+
+
+
+
+
+
 
 <body>
   <header class="navbar-fixed">
@@ -34,6 +41,7 @@
           {% if user.is_authenticated %}
             <li><a href="{% url 'bets_create' %}"> Add a Bet </a></li>
             <li><a href="/bets"> User Page </a></li>
+            <li><a href="{% url 'teams_create' %}"> Add a Team </a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
@@ -44,13 +52,25 @@
     </nav>
   </header>
 
+
+
   <main class="container">
     {% block content %}
     {% endblock %}
   </main>
 
+<<<<<<< HEAD
   <footer class="page-footer  blue darken-4">
+=======
+
+
+
+  <footer class="page-footer">
+>>>>>>> b06bec602cddc0cc50f2b3a67625ea8815779b10
     <div class="right">All Rights Reserved, &copy; 2022 SLiCK &nbsp;</div>
   </footer>
+
+
+
 </body>
 </html>
