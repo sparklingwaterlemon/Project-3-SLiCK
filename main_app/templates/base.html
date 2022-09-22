@@ -28,13 +28,8 @@
 </head>
 
 
-
-
-
-
-
-
 <body>
+  
 
   <div class="navbar-fixed">
     <nav class="nav-wrapper indigo">
@@ -69,10 +64,12 @@
     <li><a href="{% url 'login' %}">Log In</a></li>
   {% endif %}
   </ul>
+  
   <main class="container">
     {% block content %}
     {% endblock %}
   </main>
+
 
 
 

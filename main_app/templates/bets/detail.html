@@ -12,9 +12,9 @@
                 <p>Total Score: {{ bets.total_score }}</p>
             </div>
             <div class="card-action">
-                <a href="{% url 'bets_update' bets.id %}">Edit</a>
-                <a href="{% url 'bets_delete' bets.id %}">Delete</a>
-                <a href="{% url 'bets' %}">Go Back to User</a>
+                <a class="indigo-text" href="{% url 'bets_update' bets.id %}">Edit</a>
+                <a class="indigo-text" href="{% url 'bets_delete' bets.id %}">Delete</a>
+                <a class="indigo-text" href="{% url 'bets' %}">Go Back to User</a>
             </div>
         </div>
     </div>
@@ -31,10 +31,10 @@
             {% for team in bets.teams.all %}
                 <div class="card">
                     <div class="card-content">
-                        <span class="card-title">{{ team.name }}</span>
+                        <span class="card-title">{{ team.name }} {{ team.score }}</span>
                         <form action="{% url 'teams_remove' bets.id team.id %}" method="post">
                             {% csrf_token %}
-                        <button type="submit" class="btn">Remove Team</button>
+                        <button type="submit" class="btn indigo">Remove Team</button>
                         </form>
                     </div>
                 </div>
@@ -42,6 +42,7 @@
         {% else %}
             <h5>No Teams</h5>
         {% endif %}
+        <span class="card-title">{{ team.name }} {{ team.score }}</span>
     </div>
     <!-- Bet's Available Teams -->
     <div class="col s6">
@@ -57,7 +58,7 @@
                     <div class="card-action">
                         <form action="{% url 'assoc_team' bets.id team.id %}" method="post">
                             {% csrf_token %}
-                        <button type="submit" class="btn">Add</button>
+                        <button type="submit" class="btn indigo">Add</button>
                         </form>
                     </div>
                 </div>
