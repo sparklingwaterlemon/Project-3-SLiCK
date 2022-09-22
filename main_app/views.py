@@ -34,10 +34,30 @@ def bets(request):
 def bets_detail(request, bet_id):
     bets = Bet.objects.get(id=bet_id)
     teams_bets_doesnt_have = Team.objects.exclude(id__in=bets.teams.all().values_list('id'))
+
+    # grabbing all teams in bets
+    all_teams = Bet.objects.get(id=bet_id).teams.all()
+
+    # creating this new variable..
+    bet_total_score = Bet.objects.get(id=bet_id).total_score
+
+    # resetting score to 0
+    bet_total_score = 0
+    bets.total_score = bet_total_score
+    bets.save()
+
+    # for loop for iterating thru all teams
+    # adding team score to bets_score
+    for team in all_teams:
+        bet_total_score += team.score
+        bets.total_score = bet_total_score
+        bets.save()
+        
     return render(request, 'bets/detail.html', {
         'bets': bets,
         'teams': teams_bets_doesnt_have
     })
+
 
 # Create a New Bet
 # http://localhost:8000/bets/create/
@@ -116,16 +136,28 @@ class TeamDelete(LoginRequiredMixin, DeleteView):
 # http://localhost:8000/bets/123/assoc_team/123/
 @login_required
 def assoc_team(request, bet_id, team_id):
-    # id = pk
     Bet.objects.get(id=bet_id).teams.add(team_id)
+
+    # score adding functionality here ---- :
+    # grabbing the 'total_score' of an individual bet
     bet_total_score = Bet.objects.get(id=bet_id).total_score
+
+    # grabbing the 'score' of the individual team
     team_individual_score = Team.objects.get(id=team_id).score
+
+    # bet total score is adding team individual score
     bet_total_score += team_individual_score
-    Bet.objects.get(id=bet_id).save()
     
+    # updating/saving the new bet total score
+    bet = Bet.objects.get(id=bet_id)
+    bet.total_score = bet_total_score
+    bet.save()
 
     return redirect('detail', bet_id=bet_id)
 
+
+# Removing Teams from Bet
+# http:///localhost:8000/best/123/remove_team/123/
 @login_required
 def teams_remove(request, bet_id, team_id):
     Bet.objects.get(id=bet_id).teams.remove(team_id)
@@ -146,6 +178,8 @@ def teams_remove(request, bet_id, team_id):
     bet.save()
 
     return redirect('detail', bet_id=bet_id)
+
+
 
 
 def signup(request):
