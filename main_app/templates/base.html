@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -9,6 +10,9 @@
   $(document).ready(function(){
     $('.collapsible').collapsible();
   });
+  $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
   </script>
 
 
@@ -22,55 +26,52 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
-
-
-
-
-
-
-
-
-<body>
-  <header class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper  blue darken-4">
-        <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;SLiCK</a></li>
-        </ul>
-        <ul class="right">
+  <div class="navbar-fixed">
+    <nav class="nav-wrapper indigo">
+      <div class="container">
+        <a href="/" class=" brand-logo">&nbsp;&nbsp;SLICK</a>
+        <a href="/" class="sidenav-trigger" data-target="mobile-links">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down">
           {% if user.is_authenticated %}
-            <li><a href="{% url 'bets_create' %}"> Add a Bet </a></li>
-            <li><a href="/bets"> User Page </a></li>
-            <li><a href="{% url 'teams_create' %}"> Add a Team </a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
-          {% else %}
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li>
-          {% endif %}
+          <li><a href="{% url 'bets_create' %}"> Add a Bet </a></li>
+          <li><a href="/bets"> User Page </a></li>
+          <li><a href="{% url 'teams_create' %}"> Add a Team </a></li>
+          <li><a href="{% url 'logout' %}">Log Out</a></li>
+        {% else %}
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          <li><a href="{% url 'login' %}">Log In</a></li>
+        {% endif %}
         </ul>
       </div>
     </nav>
-  </header>
+  </div>
 
-
-
+  <ul class="sidenav" id="mobile-links">
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'bets_create' %}"> Add a Bet </a></li>
+    <li><a href="/bets"> User Page </a></li>
+    <li><a href="{% url 'teams_create' %}"> Add a Team </a></li>
+    <li><a href="{% url 'logout' %}">Log Out</a></li>
+  {% else %}
+    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+    <li><a href="{% url 'login' %}">Log In</a></li>
+  {% endif %}
+  </ul>
   <main class="container">
     {% block content %}
     {% endblock %}
   </main>
 
-<<<<<<< HEAD
-  <footer class="page-footer  blue darken-4">
-=======
 
 
-
-  <footer class="page-footer">
->>>>>>> b06bec602cddc0cc50f2b3a67625ea8815779b10
+  <footer class="page-footer indigo">
     <div class="right">All Rights Reserved, &copy; 2022 SLiCK &nbsp;</div>
   </footer>
 
 
 
 </body>
+
 </html>

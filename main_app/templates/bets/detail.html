@@ -10,12 +10,11 @@
                 <span class="card-title">{{ bets.name }}</span>
                 <p>Wager: {{ bets.wager }}</p>
                 <p>Total Score: {{ bets.total_score }}</p>
-                <span class="card-title">hello</span>
             </div>
             <div class="card-action">
-                <a href="{% url 'bets_update' bets.id %}">Edit</a>
-                <a href="{% url 'bets_delete' bets.id %}">Delete</a>
-                <a href="{% url 'bets' %}">Go Back to User</a>
+                <a class="indigo-text" href="{% url 'bets_update' bets.id %}">Edit</a>
+                <a class="indigo-text" href="{% url 'bets_delete' bets.id %}">Delete</a>
+                <a class="indigo-text" href="{% url 'bets' %}">Go Back to User</a>
             </div>
         </div>
     </div>
@@ -35,7 +34,7 @@
                         <span class="card-title">{{ team.name }} {{ team.score }}</span>
                         <form action="{% url 'teams_remove' bets.id team.id %}" method="post">
                             {% csrf_token %}
-                        <button type="submit" class="btn">Remove Team</button>
+                        <button type="submit" class="btn indigo">Remove Team</button>
                         </form>
                     </div>
                 </div>
@@ -59,7 +58,7 @@
                     <div class="card-action">
                         <form action="{% url 'assoc_team' bets.id team.id %}" method="post">
                             {% csrf_token %}
-                        <button type="submit" class="btn">Add</button>
+                        <button type="submit" class="btn indigo">Add</button>
                         </form>
                     </div>
                 </div>
