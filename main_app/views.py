@@ -59,6 +59,12 @@ def bets_detail(request, bet_id):
     })
 
 
+
+
+
+
+
+
 # Create a New Bet
 # http://localhost:8000/bets/create/
 class BetsCreate(LoginRequiredMixin, CreateView):

@@ -3,12 +3,12 @@
 
 <h1>Sign Up</h1>
 
-{% if error_message %}<p class="red-text">{{ error_message }}</p>{% endif %}
+{% if error_message %}<p class="indigo-text">{{ error_message }}</p>{% endif %}
 
 <form method="post" action="{% url 'signup' %}" autocomplete="off">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" class="btn" value="signup">
+    <input type="submit" class="" value="signup">
 </form>
 
 {% endblock %}

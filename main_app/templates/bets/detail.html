@@ -12,9 +12,9 @@
                 <p>Total Score: {{ bets.total_score }}</p>
             </div>
             <div class="card-action">
-                <a href="{% url 'bets_update' bets.id %}">Edit</a>
-                <a href="{% url 'bets_delete' bets.id %}">Delete</a>
-                <a href="{% url 'bets' %}">Go Back to User</a>
+                <a href="{% url 'bets_update' bets.id %}" class="indigo-text">Edit</a>
+                <a href="{% url 'bets_delete' bets.id %}" class="indigo-text">Delete</a>
+                <a href="{% url 'bets' %}"  class="indigo-text">Go Back to User</a>
             </div>
         </div>
     </div>
@@ -31,10 +31,13 @@
                 <div class="card">
                     <div class="card-content">
                         <span class="card-title">{{ team.name }}: {{ team.score }}</span>
+                        {%if team.score < 1%}
                         <form action="{% url 'teams_remove' bets.id team.id %}" method="post">
                             {% csrf_token %}
-                        <button type="submit" class="btn">Remove Team</button>
+                            <button type="submit" class="btn indigo">Remove Team</button>
                         </form>
+                        {%else%}
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}
@@ -56,10 +59,13 @@
                         </span>
                     </div>
                     <div class="card-action">
+                        {% if team.score < 1%}
                         <form action="{% url 'assoc_team' bets.id team.id %}" method="post">
                             {% csrf_token %}
-                        <button type="submit" class="btn">Add</button>
+                        <button type="submit" class="btn indigo">Add</button>
                         </form>
+                        {%else%}
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}
