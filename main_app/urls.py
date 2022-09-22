@@ -41,8 +41,6 @@ urlpatterns = [
   path('teams/<int:pk>/update/', views.TeamUpdate.as_view(), name='teams_update'),
   # http://localhost:8000/teams/123/delete/
   path('teams/<int:pk>/delete/', views.TeamDelete.as_view(), name='teams_delete'),
-  
-  path('bets/<int:bet_id>/remove_team/<int:team_id>/', views.remove_team, name="teams_remove"),
   # http://localhost:8000/accounts/signup/
   path('accounts/signup/', views.signup, name='signup'),
 
