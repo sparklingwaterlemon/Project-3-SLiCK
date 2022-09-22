@@ -1,4 +1,7 @@
 michaelkim
+<<<<<<< HEAD
+testing1000
+=======
 testing1000
 testing1000
 
@@ -11,3 +14,4 @@ testing1000
 {% endfor %}
 </h1> -->
 <!-- pip install django-mathfilters -->
+
