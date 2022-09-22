@@ -11,8 +11,8 @@
     $('.collapsible').collapsible();
   });
   $(document).ready(function(){
-      $('.sidenav').sidenav();
-    });
+    $('.sidenav').sidenav();
+  });
   </script>
 
 
@@ -26,6 +26,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
+
+
+<body>
+  
+
   <div class="navbar-fixed">
     <nav class="nav-wrapper indigo">
       <div class="container">
@@ -59,10 +64,14 @@
     <li><a href="{% url 'login' %}">Log In</a></li>
   {% endif %}
   </ul>
+
+
   <main class="container">
     {% block content %}
     {% endblock %}
   </main>
+
+
 
 
 
