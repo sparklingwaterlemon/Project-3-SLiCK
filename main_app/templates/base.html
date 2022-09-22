@@ -41,13 +41,12 @@
       <div class="container">
         <a href="/" class=" brand-logo">&nbsp;&nbsp;SLICK </a>
         <a href="/" class="sidenav-trigger" data-target="mobile-links">
-          <i class="material-icons"><img src="https://i.imgur.com/auaSiZo.png" style="height: 50px; width: 40px; padding-top: 5px;""></i>
+          <i class="material-icons"><img src="https://i.imgur.com/auaSiZo.png" style="height: 50px; margin-top: 6px;"></i>
         </a>
         <ul class="right hide-on-med-and-down">
           {% if user.is_authenticated %}
           <li><a href="{% url 'bets_create' %}"> Add a Bet </a></li>
           <li><a href="/bets"> User Page </a></li>
-          <li><a href="{% url 'teams_create' %}"> Add a Team </a></li>
           <li><a href="{% url 'logout' %}">Log Out</a></li>
         {% else %}
           <li><a href="{% url 'signup' %}">Sign Up</a></li>
@@ -62,7 +61,7 @@
     {% if user.is_authenticated %}
     <li><a href="{% url 'bets_create' %}"> Add a Bet </a></li>
     <li><a href="/bets"> User Page </a></li>
-    <li><a href="{% url 'teams_create' %}"> Add a Team </a></li>
+    <li><a href="{% url 'home' %}"> Home </a></li>
     <li><a href="{% url 'logout' %}">Log Out</a></li>
   {% else %}
     <li><a href="{% url 'signup' %}">Sign Up</a></li>
