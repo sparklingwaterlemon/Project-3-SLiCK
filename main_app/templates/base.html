@@ -35,63 +35,6 @@
 
 
 <body>
-  <!-- <header class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;SLICK</a></li>
-        </ul>
-        <ul class="right">
-          {% if user.is_authenticated %}
-            <li><a href="{% url 'bets_create' %}"> Add a Bet </a></li>
-            <li><a href="/bets"> User Page </a></li>
-            <li><a href="{% url 'teams_create' %}"> Add a Team </a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
-          {% else %}
-          <li><a href="{% url 'signup' %}">Sign Up</a></li>
-          <li><a href="{% url 'login' %}">Log In</a></li>
-          {% endif %}
-        </ul>
-      </div>
-    </nav>
-  </header> -->
-<!-- 
-  <header class="navbar-fixed">
-
-    <nav class="nav-wrapper indigo">
-      <div class="container">
-        <ul>
-          <li><a href="/" class="right brand-logo">&nbsp;&nbsp;SLICK</a><li>
-          <a href="#" class="sidenav-trigger" data-target="mobile-links">
-            <i class="material-icons">Menu</i>
-          </a>
-        </ul>
-        <ul class="left hide-on-med-and-down">
-          {% if user.is_authenticated %}
-            <li><a href="{% url 'bets_create' %}"> Add a Bet </a></li>
-            <li><a href="/bets"> User Page </a></li>
-            <li><a href="{% url 'teams_create' %}"> Add a Team </a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
-          {% else %}
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li>
-          {% endif %}
-        </ul>
-      </div>
-    </nav>
-  
-    <ul class="sidenav" id="mobile-links">
-      {% if user.is_authenticated %}
-        <li><a href="{% url 'bets_create' %}"> Add a Bet </a></li>
-        <li><a href="/bets"> User Page </a></li>
-        <li><a href="{% url 'teams_create' %}"> Add a Team </a></li>
-        <li><a href="{% url 'logout' %}">Log Out</a></li>
-      {% else %}
-        <li><a href="{% url 'signup' %}">Sign Up</a></li>
-        <li><a href="{% url 'login' %}">Log In</a></li>
-      {% endif %}
-    </ul>
-  </header> -->
 
   <div class="navbar-fixed">
     <nav class="nav-wrapper indigo">
