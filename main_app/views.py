@@ -35,10 +35,34 @@ def bets_detail(request, bet_id):
     bets = Bet.objects.get(id=bet_id)
     teams_bets_doesnt_have = Team.objects.exclude(id__in=bets.teams.all().values_list('id'))
 
+    # grabbing all teams in bets
+    all_teams = Bet.objects.get(id=bet_id).teams.all()
+
+    # creating this new variable..
+    bet_total_score = Bet.objects.get(id=bet_id).total_score
+
+    # resetting score to 0
+    bet_total_score = 0
+    bets.total_score = bet_total_score
+    bets.save()
+
+    # for loop for iterating thru all teams
+    # adding team score to bets_score
+    for team in all_teams:
+        bet_total_score += team.score
+        bets.total_score = bet_total_score
+        bets.save()
+        
     return render(request, 'bets/detail.html', {
         'bets': bets,
         'teams': teams_bets_doesnt_have
     })
+
+
+
+
+
+
 
 
 # Create a New Bet
