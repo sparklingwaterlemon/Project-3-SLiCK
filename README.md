@@ -127,5 +127,12 @@ The app is responsive to smaller and larger screens using a navbar.
 - Creating a league to play in all season
 - Using an API to update teams and scores
 
+#### Team Member Githubs
+
+- [Michael Linch](https://github.com/michaellinch90)
+- [Michael Kim](https://github.com/sparklingwaterlemon)
+- [Navjeet Chatta](https://github.com/Nomje)
+- [Vincent Salter](http://github.com/vsalter)
+
 
 
