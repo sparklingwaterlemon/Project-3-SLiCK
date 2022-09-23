@@ -1,6 +1,6 @@
 ## Welcome to SLiCK
 
-SLiCK is the newest fantasy sports web app. I allows you to pick 3 NFL teams and compare with other users who chose the teams with the highest total score. With the ability to create, update and delete bets for authorized users all the functionality they would hope for. 
+SLiCK is the newest fantasy sports web app. It allows you to pick 3 NFL teams and compare with other users picks to see whose combination scored more that day. With the ability to create, update and delete bets users have all the functionality they would hope for. 
 
 #### The Interface
 
@@ -10,7 +10,7 @@ Opend to home page with brief description of the app.
 
 If you are a user and are not logged in you can login here.
 
-![login](/screenshots/login)
+![login](/screenshots/login.png)
 
 If you are not an existing user you can create a new account here
 
@@ -32,7 +32,7 @@ If teams have already played they will not be able to be chosen.
 
 ![Played Teams](/screenshots/played-teams.png)
 
-Once you have chosen 3 teams you will no longer be able to choose anymore.
+Once you have chosen 3 teams you will no longer be able to choose anymore. User has the ability to remove teams until a score has been updated.
 
 ![Limit Teams](/screenshots/limit-teams.png)
 
