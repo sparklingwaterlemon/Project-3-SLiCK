@@ -2,6 +2,8 @@
 
 SLiCK is the newest fantasy sports web app. It allows you to pick 3 NFL teams and compare with other users picks to see whose combination scored more that day. With the ability to create, update and delete bets users have all the functionality they would hope for. 
 
+#### [SLiCK](https://slick-betting2.herokuapp.com/)
+
 #### The Interface
 
 Opend to home page with brief description of the app.
@@ -66,12 +68,6 @@ The app is responsive to smaller and larger screens using a navbar.
 
 ![Navbar](/screenshots/navbar.png)
 
-
-
-
-
-
-
 #### Technologies Used
 
 -Django
@@ -80,11 +76,16 @@ The app is responsive to smaller and larger screens using a navbar.
 -Materialize
 -Javascript
 -Heroku
+-PgAdmin
+-SQL Database
 
 
 #### Approach
 
-- Created ERD, Wireframes and Terllo board to map out the app.
+- Created ERD, Wireframes and Trello board to map out the app.
+    - [Trello](https://trello.com/b/M735kYYA/slick)
+    - [Whimsical](https://whimsical.com/slick-3X7VfkAn9qaBABjsd9Tqnh)
+    - [ERD](https://lucid.app/lucidchart/c4fb7334-355b-41ec-86d8-2350e453bc4b/edit?viewport_loc=31%2C-129%2C1681%2C1075%2C0_0&invitationId=inv_59c5cf7b-97a6-449a-89d3-e46c7f34667f#)
 - Assigned roles to members of the team
     - Michael Linch: Scrum and Documenter
     - Navjeet Chatta: Git Manager
@@ -94,31 +95,37 @@ The app is responsive to smaller and larger screens using a navbar.
     - creating paths, urls and views for each operation
 - Created users to allow there to be 1:M relationship
     - included login, log out and sign up functionality
-- Created teams and there M:M relationship  with bets
-- Added restrictions to non-authorized user
+- Created teams and the M:M relationship with bets
+- Added restrictions to non-authorized users
     - CUD ooperations for bets
-- Limited the amount of teams a user could choose
-- Ability to remove teams from bet
+- Limited the amount of teams a user could choose to 3
+- Added the ability to remove teams from bet
 - Created function to add total bet score as scores are updated
 - Added restrictions to users who are not admin
     - CUD operations for teams
 - Restircted users from adding teams who have or are currently playing a game.
-- Restricted users from remove teams who have or are currently playing a game.
+- Restricted users from removing teams who have or are currently playing a game.
 
 #### What went well...
 
-
+- Mob style of coding
+- Group communication
+- Stuck to original plan and stayed on track
 
 #### Hurdles
 
-
+- Heroku deployment was our biggest hurdle. We had to create a new repo after breaking our original app. 
+    - [OG Github](https://github.com/Nomje/SLICK-Fantasy)
+- Initial conflicts when pushin to git main. 
+- Adding total_score was the only function that gave us difficulty.
 
 #### Ice Box
 
 - Being able to search and compare scores with other users
 - Adding other sports or players
 - Adding team and user pictures
-- Creating a league to play against all season
+- Creating a league to play in all season
 - Using an API to update teams and scores
 
-#### [Good Luck](https://slick-betting2.herokuapp.com/)
+
+
