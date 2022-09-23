@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1> User Bets</h1>
+<h1> {{ user.username|upper }}'s Bets</h1>
 
 {% for bet in bets %}
     <ul class="collapsible popout">
         <li>
             <div class="collapsible-header"><i class="material-icons"></i>
-                <h4><span class="card-title">{{ bet.name }}</span></h4>
+                <h4><span class="card-title">{{ bet.name|capfirst }}</span></h4>
             </div>
             <div class="collapsible-body">
                 <span>Total Score: {{ bet.total_score }}</span>

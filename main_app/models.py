@@ -25,3 +25,4 @@ class Bet(models.Model):
         return self.name
 
 
+

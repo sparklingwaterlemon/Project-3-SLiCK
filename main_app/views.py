@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Bet, Team
 
 from django.shortcuts import render, redirect
@@ -14,11 +14,22 @@ from django.urls import reverse
 from django.http import HttpResponse
 
 
+# restrict certain pages for Super User Auth Only
+class SuperUserRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+
+
+
+
 
 # Home Page
 # http://localhost:8000/
 def home(request):
     return render(request, "home.html")
+
 
 # Bets Index
 # http://localhost:8000/bets/
@@ -28,6 +39,7 @@ def bets(request):
     return render(request, "bets.html", {
         'bets': bets
         })
+
 
 # Bets Detail
 # http://localhost:8000/bets/123/
@@ -62,16 +74,11 @@ def bets_detail(request, bet_id):
 
 
 
-
-
-
-
 # Create a New Bet
 # http://localhost:8000/bets/create/
 class BetsCreate(LoginRequiredMixin, CreateView):
     model = Bet
     fields = ['name', 'wager']
-
     # This inherited method is called when a
   # valid cat form is being submitted
     def form_valid(self, form):
@@ -106,17 +113,17 @@ class BetsDelete(LoginRequiredMixin, DeleteView):
 
 # List of Teams
 # http://localhost:8000/teams/
-class TeamList(LoginRequiredMixin, ListView):
+class TeamList(SuperUserRequiredMixin, ListView):
     model = Team
 
 # Team Detail
 # http://localhost:8000/teams/123/
-class TeamDetail(LoginRequiredMixin, DetailView):
+class TeamDetail(SuperUserRequiredMixin, DetailView):
     model = Team
 
 # Team Create
 # http://localhost:8000/teams/create/
-class TeamCreate(LoginRequiredMixin, CreateView):
+class TeamCreate(SuperUserRequiredMixin, CreateView):
     model = Team
     fields = '__all__'
 
@@ -124,7 +131,7 @@ class TeamCreate(LoginRequiredMixin, CreateView):
 
 # Team Update
 # http://localhost:8000/teams/123/update/
-class TeamUpdate(LoginRequiredMixin, UpdateView):
+class TeamUpdate(SuperUserRequiredMixin, UpdateView):
     model = Team
     fields = ['name', 'score']
 
@@ -135,7 +142,7 @@ class TeamUpdate(LoginRequiredMixin, UpdateView):
 
 # Team Delete
 # http://localhost:8000/teams/112/delete/
-class TeamDelete(LoginRequiredMixin, DeleteView):
+class TeamDelete(SuperUserRequiredMixin, DeleteView):
     model = Team
     success_url = '/teams/'
 
