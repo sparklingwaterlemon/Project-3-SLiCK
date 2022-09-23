@@ -1,8 +1,10 @@
-michaelkim
-testing1000
-testing1000
+Admin - Heroku
+Username: michaelkim
+Password: giiRmjkaBQ7qh4D
 
-
+Not Admin - Heroku
+Username: notadmin_mk
+Password: RmjSSSKl4D
 
 <!-- <h1>
 {% for team in bets.teams.all %}
