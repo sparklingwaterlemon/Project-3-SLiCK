@@ -2,7 +2,9 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-}
+  background-image: linear-gradient(to bottom right, rgb(163, 53, 241), rgb(81, 164, 247));
+  color: yellow;
+} 
 
 main {
   flex: 1 0 auto;
@@ -13,7 +15,58 @@ footer.page-footer {
   text-align: right;
 }
 
-@media (max-width: 500px){
-  margin: flex;
+
+
+h1 {
+  font-family: 'Nabla', cursive;
 }
+
+
+
+.brand-logo {
+  font-family: 'Bungee Spice', cursive;
+}
+
+
+
+
+.collapsible-header, .collapsible-body {
+  font-family: 'Nunito', sans-serif;
+  /* text-shadow: 2px 2px 2px yellow; */
+  background-image: linear-gradient(to right, rgb(249, 138, 63), rgb(248, 206, 108));
+}
+.collapsible-header {
+  color: rgb(100, 34, 243);
+}
+
+.collapsible-body {
+  color: rgb(100, 34, 243);
+  font-size: 20px;
+}
+
+.collapsible-body a {
+  font-size: 18px;
+  color: yellow;
+}
+
+input {
+  padding: 8px; 
+  background-color: rgb(0, 255, 217);
+}
+
+.card-content {
+  color: rgb(49,58,167);
+  font-weight:
+  background-image: linear-gradient(to right, rgb(249, 138, 63), rgb(248, 206, 108));
+}
+.card-action {
+  background-image: linear-gradient(to right, rgb(249, 138, 63), rgb(248, 206, 108));
+}
+
+label {
+  color: yellow;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+}
+
 
